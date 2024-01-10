@@ -1,0 +1,13 @@
+GET http://localhost:8080/match/123
+
+
+###
+
+POST http://localhost:8080/string HTTP/1.1
+content-type: application/json
+
+{"firstName": "John","lastName": "Smith","age": 25}
+
+###
+
+POST http://localhost:8080/json
