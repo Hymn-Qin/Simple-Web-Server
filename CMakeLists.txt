@@ -2,13 +2,20 @@ cmake_minimum_required(VERSION 3.7)
 
 project(Simple-Web-Server)
 
+# 设置使用独立的 asio 还是 Boost.Asio
 option(USE_STANDALONE_ASIO "set ON to use standalone Asio instead of Boost.Asio" OFF)
+
+# 当前目录是否是 cmake的所在目录，打开测试
 if(CMAKE_SOURCE_DIR STREQUAL "${CMAKE_CURRENT_SOURCE_DIR}")
     option(BUILD_TESTING "set ON to build library tests" ON)
 else()
     option(BUILD_TESTING "set ON to build library tests" OFF)
 endif()
+
+# Fuzz测试
 option(BUILD_FUZZING "set ON to build library fuzzers" OFF)
+
+# 是否启用 openssl 证书，就是 https
 option(USE_OPENSSL "set OFF to build without OpenSSL" ON)
 
 add_library(simple-web-server INTERFACE)
